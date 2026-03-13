@@ -187,7 +187,7 @@ export const HeroBlock: FC = () => {
               mx: 'auto',
             }}
           >
-            Step into private rooms with friends, talk live, explore together, and spend time in spaces that react to the mood and move with the night.
+            Step into private rooms with friends, talk live, explore together, and spend time in spaces that react to the mood and move with the vibe.
           </Typography>
 
           <Box
