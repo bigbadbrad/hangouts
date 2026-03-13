@@ -1,9 +1,12 @@
 'use client';
 
+import { useState } from 'react';
 import type { FC } from 'react';
 import { Box, Container, Typography, Button, Chip } from '@mui/material';
+import { ClaimUsernameModal } from './ClaimUsernameModal';
 
 export const HeroBlock: FC = () => {
+  const [claimModalOpen, setClaimModalOpen] = useState(false);
   return (
     <Box
       component="section"
@@ -280,8 +283,34 @@ export const HeroBlock: FC = () => {
               }}
             />
           </Box>
+
+          <Typography
+            component="button"
+            type="button"
+            onClick={() => setClaimModalOpen(true)}
+            sx={{
+              display: 'block',
+              mt: 10,
+              mx: 'auto',
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              font: 'inherit',
+              fontSize: '0.9375rem',
+              color: 'rgba(255,255,255,0.6)',
+              textDecoration: 'underline',
+              textUnderlineOffset: 4,
+              '&:hover': {
+                color: 'rgba(255,255,255,0.9)',
+              },
+            }}
+          >
+            Claim your username before beta opens
+          </Typography>
         </Box>
       </Container>
+
+      <ClaimUsernameModal open={claimModalOpen} onClose={() => setClaimModalOpen(false)} />
     </Box>
   );
 };

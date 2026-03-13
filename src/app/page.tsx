@@ -1,6 +1,7 @@
 import { HeroBlock } from '@/components/home/HeroBlock';
 import { MotionSection } from '@/components/home/MotionSection';
 import { RoomsBlock } from '@/components/home/RoomsBlock';
+import { WhatActuallyHappensBlock } from '@/components/home/WhatActuallyHappensBlock';
 
 export const metadata = {
   title: 'Hangouts — Private 3D Chat',
@@ -15,6 +16,7 @@ export default function Page() {
         <HeroBlock />
       </MotionSection>
       <RoomsBlock />
+      <WhatActuallyHappensBlock />
     </>
   );
 }
