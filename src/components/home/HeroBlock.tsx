@@ -161,7 +161,7 @@ export const HeroBlock: FC = () => {
               mb: 2,
             }}
           >
-            Private 3D Chat
+            3D Chat, Reimagined
           </Typography>
           <Typography
             component="h1"
@@ -175,7 +175,7 @@ export const HeroBlock: FC = () => {
               textShadow: '0 0 60px rgba(0,0,0,0.3)',
             }}
           >
-            Hang out in worlds that come alive
+            Hang out in worlds that come alive.
           </Typography>
           <Typography
             sx={{
@@ -187,7 +187,7 @@ export const HeroBlock: FC = () => {
               mx: 'auto',
             }}
           >
-            Step into private rooms with friends, talk live, explore together, and spend time in spaces that react to the mood and move with the vibe.
+            Step into rooms where people meet, talk live, explore together, and spend time in spaces that react to the mood and move with the vibe.
           </Typography>
           {/* add google analytics */}
 
