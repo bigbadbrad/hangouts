@@ -189,6 +189,7 @@ export const HeroBlock: FC = () => {
           >
             Step into private rooms with friends, talk live, explore together, and spend time in spaces that react to the mood and move with the vibe.
           </Typography>
+          {/* add google analytics */}
 
           <Box
             sx={{
