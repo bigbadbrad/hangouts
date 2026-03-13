@@ -40,11 +40,11 @@ export const Footer: FC<FooterProps> = ({ colorScheme = 'dark' }) => {
           <Box sx={{ width: { xs: '15%', sm: '30%' } }}>
             <IconCircle fill={iconColor} />
           </Box>
-          <Box sx={{ mt: 0, display: 'flex', justifyContent: 'center' }}>
+          <Box sx={{ mt: -1, display: 'flex', justifyContent: 'center' }}>
             <Logo textColor={iconColor} height={34} />
           </Box>
         </Box>
-        <Typography variant="h6" sx={{ mt: 2, mb: 4 }}>3D chat that comes alive.</Typography>
+        <Typography variant="body1" sx={{ mt: 2, mb: 4 }}>3D chat that comes alive.</Typography>
         <Box
           sx={{
             display: 'flex',
