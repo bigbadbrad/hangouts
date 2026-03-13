@@ -4,6 +4,7 @@
 import type { FC } from 'react';
 import { Box, Container, Typography, Button } from '@mui/material';
 import { IconCircle } from './icon-circle';
+import { Logo } from './logo';
 import XIcon from '@mui/icons-material/X';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -35,12 +36,15 @@ export const Footer: FC<FooterProps> = ({ colorScheme = 'dark' }) => {
         }}
       >
         {/* Main icon and logo */}
-        <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <Box sx={{ width: { xs: '15%', sm: '30%' } }}>
             <IconCircle fill={iconColor} />
           </Box>
+          <Box sx={{ mt: 0, display: 'flex', justifyContent: 'center' }}>
+            <Logo textColor={iconColor} height={34} />
+          </Box>
         </Box>
-        <Typography variant="h6" sx={{ mt: 2, mb: 4 }}>Get a clear headcount by text.</Typography>
+        <Typography variant="h6" sx={{ mt: 2, mb: 4 }}>3D chat that comes alive.</Typography>
         <Box
           sx={{
             display: 'flex',

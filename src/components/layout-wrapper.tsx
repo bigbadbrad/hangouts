@@ -32,7 +32,7 @@ export function LayoutWrapper({ children }: LayoutWrapperProps) {
       <Box
         component="main"
         sx={{
-          paddingTop: { xs: '96px', sm: '104px' },
+          paddingTop: { xs: '56px', sm: '64px' },
           backgroundColor: '#1d1d1f',
         }}
       >
