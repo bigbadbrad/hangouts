@@ -1,3 +1,4 @@
+import { CreatorProgramBlock } from '@/components/home/CreatorProgramBlock';
 import { HeroBlock } from '@/components/home/HeroBlock';
 import { MotionSection } from '@/components/home/MotionSection';
 import { RoomsBlock } from '@/components/home/RoomsBlock';
@@ -18,6 +19,7 @@ export default function Page() {
       </MotionSection>
       <RoomsBlock />
       <WhatActuallyHappensBlock />
+      <CreatorProgramBlock />
     </>
   );
 }

@@ -92,7 +92,7 @@ export const RoomsBlock: FC = () => {
                 mb: 2,
               }}
             >
-              Rooms that react to your group
+              Rooms that react to your group.
             </Typography>
             <Typography
               sx={{

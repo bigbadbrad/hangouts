@@ -126,7 +126,7 @@ export const WhatActuallyHappensBlock: FC = () => {
                 mb: 2,
               }}
             >
-              The room knows when to change the moment
+              The room knows when to change the moment.
             </Typography>
             <Typography
               sx={{
