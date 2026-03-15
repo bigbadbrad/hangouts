@@ -178,7 +178,7 @@ export const HeroBlock: FC = () => {
               textShadow: '0 0 60px rgba(0,0,0,0.3)',
             }}
           >
-            Hang out in worlds that come alive.
+            Hangouts: 3D chat in worlds that come alive.
           </Typography>
           <Typography
             sx={{

@@ -4,8 +4,9 @@ import { RoomsBlock } from '@/components/home/RoomsBlock';
 import { WhatActuallyHappensBlock } from '@/components/home/WhatActuallyHappensBlock';
 
 export const metadata = {
-  title: 'Hangouts — Private 3D Chat',
-  description: '3D chat for real hangouts. Step into private rooms with friends, talk live, explore together.',
+  title: 'Hangouts — 3D Chat That Comes Alive',
+  description:
+    '3D chat that comes alive. Hangouts — private rooms, live voice, worlds that react. The best 3D chat for real hangouts with friends.',
   openGraph: { url: 'https://hangouts.fun' },
 };
 

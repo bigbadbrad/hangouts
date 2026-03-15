@@ -17,20 +17,24 @@ export const metadata: Metadata = {
     canonical: 'https://hangouts.fun',
   },
   title: {
-    default: 'Hangouts — Private 3D Chat',
+    default: 'Hangouts — 3D Chat That Comes Alive',
     template: '%s',
   },
-  description: '3D chat for real hangouts. Step into private rooms with friends, talk live, explore together.',
+  description:
+    '3D chat that comes alive. Hangouts — private rooms, live voice, worlds that react. The best 3D chat for real hangouts with friends.',
+  keywords: ['3d chat', 'hangouts', '3d chat app', 'private 3d chat', 'live 3d chat', '3d chat rooms'],
   openGraph: {
     siteName: 'Hangouts',
     url: 'https://hangouts.fun',
-    title: 'Hangouts — Private 3D Chat',
-    description: '3D chat for real hangouts. Step into private rooms with friends, talk live, explore together.',
+    title: 'Hangouts — 3D Chat That Comes Alive',
+    description:
+      '3D chat that comes alive. Hangouts — private rooms, live voice, worlds that react. The best 3D chat for real hangouts with friends.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Hangouts — Private 3D Chat',
-    description: '3D chat for real hangouts. Step into private rooms with friends, talk live, explore together.',
+    title: 'Hangouts — 3D Chat That Comes Alive',
+    description:
+      '3D chat that comes alive. Hangouts — private rooms, live voice, worlds that react. The best 3D chat for real hangouts with friends.',
   },
   icons: {
     icon: [
@@ -57,9 +61,21 @@ interface LayoutProps {
 }
 
 export default function Layout({ children }: LayoutProps): React.JSX.Element {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Hangouts',
+    description: '3D chat that comes alive. Private rooms, live voice, worlds that react.',
+    url: 'https://hangouts.fun',
+  };
+
   return (
     <html lang="en">
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <GoogleAnalytics />
         <LocalizationProvider>
           <UserProvider>
