@@ -142,10 +142,12 @@ export const CreatorProgramBlock: FC = () => {
                   mb: 4,
                 }}
               >
-                {supportingItems.map((item, i) => (
+                {supportingItems.map((item) => (
                   <Box
                     key={item.title}
+                    component="div"
                     sx={{
+                      position: 'relative',
                       display: 'flex',
                       gap: 1.5,
                       p: 2,
@@ -153,9 +155,13 @@ export const CreatorProgramBlock: FC = () => {
                       border: '1px solid rgba(255,255,255,0.06)',
                       backgroundColor: 'rgba(255,255,255,0.02)',
                       transition: 'all 0.25s ease',
+                      cursor: 'default',
                       '&:hover': {
-                        borderColor: 'rgba(255,255,255,0.1)',
-                        backgroundColor: 'rgba(255,255,255,0.04)',
+                        borderColor: 'rgba(255,255,255,0.14)',
+                        backgroundColor: 'rgba(255,255,255,0.06)',
+                        transform: 'translateY(-2px)',
+                        boxShadow: '0 8px 24px rgba(0,0,0,0.2)',
+                        zIndex: 1,
                       },
                     }}
                   >

@@ -12,6 +12,7 @@ import {
   Box,
 } from '@mui/material';
 import { IconCircle } from '@/components/icon-circle';
+import { Logo } from '@/components/logo';
 
 interface ClaimUsernameModalProps {
   open: boolean;
@@ -69,8 +70,13 @@ export const ClaimUsernameModal: FC<ClaimUsernameModalProps> = ({ open, onClose 
             textAlign: 'center',
           }}
         >
-          <Box sx={{ width: 64, height: 64, flexShrink: 0 }}>
-            <IconCircle fill="#FFFFFF" />
+          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <Box sx={{ width: 64, height: 64, flexShrink: 0 }}>
+              <IconCircle fill="#FFFFFF" />
+            </Box>
+            <Box sx={{ mt: -0.5, display: 'flex', justifyContent: 'center' }}>
+              <Logo textColor="#FFFFFF" height={34} />
+            </Box>
           </Box>
           Claim your username<br />before beta opens
         </DialogTitle>
