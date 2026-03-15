@@ -4,43 +4,53 @@ import type { FC } from 'react';
 import { Box, Container, Typography, Button } from '@mui/material';
 import { motion } from 'framer-motion';
 import {
-  User as UserIcon,
+  Play as LiveIcon,
+  FloppyDisk as SaveIcon,
+  Storefront as PublishIcon,
+  Users as UsersIcon,
   House as HouseIcon,
-  Cube as CubeIcon,
-  CurrencyCircleDollar as EarnIcon,
+  Palette as PaletteIcon,
+  Package as PackageIcon,
 } from '@phosphor-icons/react';
 
 const supportingItems = [
   {
-    title: 'Create avatar looks',
-    body: 'Design styles, outfits, accessories, and identity items that help people show up as themselves.',
-    Icon: UserIcon,
-  },
-  {
-    title: 'Build rooms and decor',
-    body: 'Shape the spaces people meet in, from signature rooms to scene details that define the mood.',
+    title: 'Rooms become creations',
+    body: 'A live room state, atmosphere, or scene can be saved and turned into something people come back to.',
     Icon: HouseIcon,
   },
   {
-    title: 'Publish interactive assets',
-    body: 'Create objects and atmosphere elements that make hangouts feel more alive and memorable.',
-    Icon: CubeIcon,
+    title: 'Looks can be published',
+    body: 'When a style hits, save it, name it, and make it available for others to wear.',
+    Icon: PaletteIcon,
   },
   {
-    title: 'Earn from what you build',
-    body: 'Grow with the platform by publishing original creator-made content people actually use.',
-    Icon: EarnIcon,
+    title: 'Moments become products',
+    body: 'The best combinations of mood, space, character, and energy can live on beyond a single hangout.',
+    Icon: PackageIcon,
+  },
+  {
+    title: 'Everyone can create',
+    body: "You don't need to be a professional 3D artist to shape something worth sharing.",
+    Icon: UsersIcon,
   },
 ];
 
-export const CreatorProgramBlock: FC = () => {
+const creatorLoopSteps = [
+  { label: 'Live Hangout', sub: 'active room', Icon: LiveIcon },
+  { label: 'Saved', sub: 'captured vibe', Icon: SaveIcon },
+  { label: 'Published', sub: 'named & shared', Icon: PublishIcon },
+  { label: 'Used by others', sub: 'in new hangouts', Icon: UsersIcon },
+];
+
+export const CreatorProgramForTheRestOfUsBlock: FC = () => {
   return (
     <Box
       component="section"
       sx={{
         background: `
-          radial-gradient(ellipse 100% 60% at 80% 50%, rgba(120, 90, 140, 0.12) 0%, transparent 50%),
-          radial-gradient(ellipse 80% 50% at 20% 60%, rgba(90, 70, 110, 0.08) 0%, transparent 45%),
+          radial-gradient(ellipse 100% 60% at 80% 50%, rgba(120, 90, 140, 0.14) 0%, transparent 50%),
+          radial-gradient(ellipse 80% 50% at 20% 60%, rgba(90, 70, 110, 0.1) 0%, transparent 45%),
           linear-gradient(180deg, #1d1d1f 0%, #1a1525 30%, #1e1a28 100%)
         `,
         position: 'relative',
@@ -64,17 +74,13 @@ export const CreatorProgramBlock: FC = () => {
         component="style"
         dangerouslySetInnerHTML={{
           __html: `
-            @keyframes creator-float {
-              0%, 100% { transform: translateY(0) rotate(0deg); }
-              50% { transform: translateY(-8px) rotate(2deg); }
+            @keyframes creator-rest-glow {
+              0%, 100% { opacity: 0.5; }
+              50% { opacity: 0.9; }
             }
-            @keyframes creator-float-2 {
-              0%, 100% { transform: translateY(0) rotate(0deg); }
-              50% { transform: translateY(6px) rotate(-1deg); }
-            }
-            @keyframes creator-glow {
-              0%, 100% { opacity: 0.4; }
-              50% { opacity: 0.7; }
+            @keyframes creator-rest-pulse {
+              0%, 100% { transform: scale(1); }
+              50% { transform: scale(1.02); }
             }
           `,
         }}
@@ -89,8 +95,8 @@ export const CreatorProgramBlock: FC = () => {
             alignItems: 'center',
           }}
         >
-          {/* Left: Copy + CTAs + supporting points */}
-          <Box sx={{ order: { xs: 1, md: 1 } }}>
+          {/* Left: Copy + supporting items + CTAs */}
+          <Box sx={{ order: { xs: 1, md: 2 } }}>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -108,7 +114,7 @@ export const CreatorProgramBlock: FC = () => {
                   mb: 1.5,
                 }}
               >
-                Creator Program
+                Creator Program for the Rest of Us
               </Typography>
               <Typography
                 component="h2"
@@ -121,7 +127,7 @@ export const CreatorProgramBlock: FC = () => {
                   mb: 2,
                 }}
               >
-                Build the worlds, looks, and moments people come back for
+                Save the vibe. Share it. Sell it.
               </Typography>
               <Typography
                 sx={{
@@ -131,7 +137,7 @@ export const CreatorProgramBlock: FC = () => {
                   mb: 3,
                 }}
               >
-                Create avatars, rooms, decor, and interactive scene assets for Hangouts — and turn your style into part of a new kind of 3D social experience.
+                In Hangouts, the best looks, rooms, and live moments don&apos;t have to disappear. Save what the room creates, remix it, publish it, and turn it into something other people can use.
               </Typography>
 
               <Box
@@ -248,18 +254,18 @@ export const CreatorProgramBlock: FC = () => {
                     },
                   }}
                 >
-                  Learn More
+                  See How Creation Works
                 </Button>
               </Box>
             </motion.div>
           </Box>
 
-          {/* Right: Visual composition — floating asset cards */}
+          {/* Right: Creator loop visual — Live → Saved → Published → Used */}
           <Box
             sx={{
-              order: { xs: 2, md: 2 },
+              order: { xs: 2, md: 1 },
               position: 'relative',
-              minHeight: { xs: 320, md: 400 },
+              minHeight: { xs: 360, md: 420 },
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -273,129 +279,124 @@ export const CreatorProgramBlock: FC = () => {
               style={{
                 position: 'relative',
                 width: '100%',
-                height: '100%',
                 display: 'flex',
+                flexDirection: 'column',
                 alignItems: 'center',
-                justifyContent: 'center',
+                gap: 1.5,
               }}
             >
               <Box
                 sx={{
                   position: 'absolute',
-                  width: 200,
-                  height: 200,
+                  top: '50%',
+                  left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  width: 280,
+                  height: 120,
                   borderRadius: '50%',
-                  background: 'radial-gradient(circle, rgba(140, 100, 180, 0.2) 0%, transparent 70%)',
-                  filter: 'blur(40px)',
-                  animation: 'creator-glow 6s ease-in-out infinite',
+                  background: 'radial-gradient(ellipse, rgba(140, 100, 180, 0.25) 0%, transparent 70%)',
+                  filter: 'blur(50px)',
+                  animation: 'creator-rest-glow 5s ease-in-out infinite',
                 }}
               />
 
               <Box
                 sx={{
-                  position: 'absolute',
-                  left: { xs: '10%', md: '5%' },
-                  top: { xs: '15%', md: '20%' },
-                  width: 80,
-                  height: 100,
-                  borderRadius: 2,
-                  border: '1px solid rgba(255,255,255,0.1)',
-                  backgroundColor: 'rgba(255,255,255,0.04)',
-                  backdropFilter: 'blur(8px)',
                   display: 'flex',
+                  flexDirection: { xs: 'column', sm: 'row' },
                   alignItems: 'center',
                   justifyContent: 'center',
-                  animation: 'creator-float 5s ease-in-out infinite',
-                  boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
+                  gap: { xs: 1.5, sm: 0.5 },
+                  flexWrap: 'wrap',
+                  position: 'relative',
+                  zIndex: 1,
                 }}
               >
-                <UserIcon size={32} weight="duotone" color="rgba(255,255,255,0.6)" />
+                {creatorLoopSteps.map((step, i) => (
+                  <Box
+                    key={step.label}
+                    sx={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 0.5,
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        width: { xs: 72, sm: 80 },
+                        height: { xs: 88, sm: 96 },
+                        borderRadius: 2,
+                        border: '1px solid rgba(255,255,255,0.12)',
+                        backgroundColor: 'rgba(255,255,255,0.05)',
+                        backdropFilter: 'blur(12px)',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: 0.5,
+                        transition: 'all 0.3s ease',
+                        animation: 'creator-rest-pulse 4s ease-in-out infinite',
+                        animationDelay: `${i * 0.3}s`,
+                        '&:hover': {
+                          borderColor: 'rgba(255,255,255,0.2)',
+                          backgroundColor: 'rgba(255,255,255,0.08)',
+                          transform: 'translateY(-4px)',
+                          boxShadow: '0 12px 32px rgba(0,0,0,0.3)',
+                        },
+                      }}
+                    >
+                      <step.Icon size={28} weight="duotone" color="rgba(255,255,255,0.8)" />
+                      <Typography
+                        sx={{
+                          fontSize: '0.6875rem',
+                          fontWeight: 600,
+                          color: 'rgba(255,255,255,0.9)',
+                          textAlign: 'center',
+                          lineHeight: 1.2,
+                        }}
+                      >
+                        {step.label}
+                      </Typography>
+                      <Typography
+                        sx={{
+                          fontSize: '0.625rem',
+                          color: 'rgba(255,255,255,0.5)',
+                          textAlign: 'center',
+                        }}
+                      >
+                        {step.sub}
+                      </Typography>
+                    </Box>
+                    {i < creatorLoopSteps.length - 1 && (
+                      <Box
+                        sx={{
+                          display: { xs: 'none', sm: 'block' },
+                          width: 16,
+                          color: 'rgba(255,255,255,0.3)',
+                          '& svg': { width: '100%', height: 'auto' },
+                        }}
+                      >
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <path d="M9 18l6-6-6-6" />
+                        </svg>
+                      </Box>
+                    )}
+                  </Box>
+                ))}
               </Box>
 
-              <Box
+              <Typography
                 sx={{
-                  position: 'absolute',
-                  right: { xs: '5%', md: '10%' },
-                  top: { xs: '10%', md: '15%' },
-                  width: 90,
-                  height: 70,
-                  borderRadius: 2,
-                  border: '1px solid rgba(255,255,255,0.1)',
-                  backgroundColor: 'rgba(255,255,255,0.04)',
-                  backdropFilter: 'blur(8px)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  animation: 'creator-float-2 6s ease-in-out infinite 0.5s',
-                  boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
+                  fontSize: '0.75rem',
+                  fontWeight: 600,
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.12em',
+                  color: 'rgba(255,255,255,0.45)',
+                  mt: 1,
                 }}
               >
-                <HouseIcon size={28} weight="duotone" color="rgba(255,255,255,0.6)" />
-              </Box>
-
-              <Box
-                sx={{
-                  position: 'absolute',
-                  left: { xs: '5%', md: '15%' },
-                  bottom: { xs: '25%', md: '20%' },
-                  width: 70,
-                  height: 85,
-                  borderRadius: 2,
-                  border: '1px solid rgba(255,255,255,0.1)',
-                  backgroundColor: 'rgba(255,255,255,0.04)',
-                  backdropFilter: 'blur(8px)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  animation: 'creator-float 5.5s ease-in-out infinite 1s',
-                  boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
-                }}
-              >
-                <CubeIcon size={26} weight="duotone" color="rgba(255,255,255,0.6)" />
-              </Box>
-
-              <Box
-                sx={{
-                  position: 'absolute',
-                  right: { xs: '15%', md: '5%' },
-                  bottom: { xs: '15%', md: '25%' },
-                  width: 85,
-                  height: 90,
-                  borderRadius: 2,
-                  border: '1px solid rgba(255,255,255,0.12)',
-                  backgroundColor: 'rgba(255,255,255,0.06)',
-                  backdropFilter: 'blur(8px)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  animation: 'creator-float-2 5s ease-in-out infinite 1.5s',
-                  boxShadow: '0 12px 40px rgba(0,0,0,0.35)',
-                }}
-              >
-                <EarnIcon size={30} weight="duotone" color="rgba(255,255,255,0.7)" />
-              </Box>
-
-              <Box
-                sx={{
-                  position: 'absolute',
-                  width: 120,
-                  height: 120,
-                  borderRadius: '50%',
-                  border: '1px solid rgba(255,255,255,0.08)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              >
-                <Box
-                  sx={{
-                    width: 60,
-                    height: 60,
-                    borderRadius: '50%',
-                    background: 'radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%)',
-                  }}
-                />
-              </Box>
+                Energy → Product
+              </Typography>
             </motion.div>
           </Box>
         </Box>
