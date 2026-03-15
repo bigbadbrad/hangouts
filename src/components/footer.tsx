@@ -2,7 +2,7 @@
 "use client";
 
 import type { FC } from 'react';
-import { Box, Container, Typography, Button } from '@mui/material';
+import { Box, Container, Typography, Button, Tooltip } from '@mui/material';
 import { IconCircle } from './icon-circle';
 import { Logo } from './logo';
 import XIcon from '@mui/icons-material/X';
@@ -12,6 +12,10 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 interface FooterProps {
   colorScheme?: 'light' | 'dark';
 }
+
+// Obfuscated to avoid crawlers — built from char codes at runtime
+const getContactEmail = () =>
+  String.fromCharCode(98, 114, 97, 100, 95, 109, 101, 105, 110, 101, 114, 116, 64, 121, 97, 104, 111, 111, 46, 99, 111, 109);
 
 export const Footer: FC<FooterProps> = ({ colorScheme = 'dark' }) => {
   const iconColor = colorScheme === 'dark' ? '#d1d1d2' : '#444444';
@@ -57,7 +61,9 @@ export const Footer: FC<FooterProps> = ({ colorScheme = 'dark' }) => {
           <Button sx={{ color: iconColor, textTransform: 'none' }}>About</Button>
           <Button sx={{ color: iconColor, textTransform: 'none' }}>Privacy</Button>
           <Button sx={{ color: iconColor, textTransform: 'none' }}>Terms</Button>
-          <Button sx={{ color: iconColor, textTransform: 'none' }}>Contact</Button>
+          <Tooltip title={getContactEmail()} placement="top">
+            <Button sx={{ color: iconColor, textTransform: 'none' }}>Contact</Button>
+          </Tooltip>
         </Box>
 
         <Box
